@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/TheGame.css">
+    <link rel="icon" href="/src/images/123.webp" type="image/x-icon">.
+    <title>physics</title>
+</head>
+<body>
+  <div class="particles" id="particles-js"></div>
+  <!-- Шапка -->
+  <header>
+      <div class="header-container">
+          <a href="/index.html" class="logo">
+              <img src="/src/images/123.webp" alt="Логотип Physics">
+              <span class="logo-text">Physics</span>
+          </a>
+          
+          <nav>
+              <a href="/index.html" class="nav-link">Главная</a>
+              <a href="/src/pages/Test.html" class="nav-link">Тесты</a>
+              <a href="/src/pages/History.html" class="nav-link">История</a>
+              <a href="#" class="nav-link">Поддержка</a>
+          </nav>
+          
+          <div class="auth">
+              <a href="https://vk.com/nekiselka" class="btn btn-primary">ВКонтакте</a>
+              <a href="https://t.me/Nekiselka" class="btn btn-primary">Telegram</a>
+          </div>
+      </div>
+  </header>
+
+    <div class="game-container">
+        <h1>Собери формулу</h1>
+        <div class="score">Очков: <span id="points">0</span></div>
+        <div class="formula-display" id="formulaDisplay"></div>
+        <div class="elements-container" id="elementsContainer"></div>
+        <div class="controls">
+            <button id="checkBtn">Проверить</button>
+            <button id="clearBtn">Очистить</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+</body>
+<script src="/src/script/TheGame.js"></script>
+</html>

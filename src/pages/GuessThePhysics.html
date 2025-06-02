@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>physics</title>
+    <link rel="icon" href="/src/images/123.webp" type="image/x-icon">.
+    <link rel="stylesheet" href="/src/css/GuessThePhysics.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="particles" id="particles-js"></div>
+  <!-- Шапка -->
+  <header>
+      <div class="header-container">
+          <a href="/index.html" class="logo">
+              <img src="/src/images/123.webp" alt="Логотип Physics">
+              <span class="logo-text">Physics</span>
+          </a>
+          
+          <nav>
+              <a href="/index.html" class="nav-link">Главная</a>
+              <a href="/src/pages/Test.html" class="nav-link">Тесты</a>
+              <a href="/src/pages/History.html" class="nav-link">История</a>
+              <a href="#" class="nav-link">Поддержка</a>
+          </nav>
+          
+          <div class="auth">
+              <a href="https://vk.com/nekiselka" class="btn btn-primary">ВКонтакте</a>
+              <a href="https://t.me/Nekiselka" class="btn btn-primary">Telegram</a>
+          </div>
+      </div>
+  </header>
+  
+
+      <div class="quiz-container">
+        <h1>Угадай физика по открытию</h1>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+        <div class="question-card">
+            <div class="question" id="question"></div>
+            <div class="hint" id="hint"></div>
+            <img class="scientist-image" id="scientistImage" src="" alt="Портрет ученого">
+        </div>
+        <div class="options" id="options"></div>
+        <div class="result" id="result"></div>
+        <button class="next-btn" id="nextBtn">Следующий вопрос</button>
+        <div class="score-container">
+            Ваш результат: <span id="score">0</span> из <span id="total">0</span>
+        </div>
+    </div>
+</body>
+<script src="/src/script/GuessThePhysics.js"></script>
+</html>

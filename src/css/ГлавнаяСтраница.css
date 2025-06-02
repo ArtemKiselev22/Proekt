@@ -1,0 +1,304 @@
+:root {
+  --primary: #1b5779;
+  --secondary: #ff6b35;
+  --dark: #0a1f2b;
+  --light: #f7f9fc;
+  --accent: #4ecdc4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--primary), var(--dark));
+  color: var(--light);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: url( https://avatars.mds.yandex.net/i?id=3419d8287798c7ae996b10dc3b006763_l-8437558-images-thumbs&n=13);
+  background-size: cover;
+  -webkit-animation: slidein 100s;
+  animation: slidein 100s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+/* Шапка с эффектом стекла */
+header {
+  background: rgba(10, 31, 43, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(78, 205, 196, 0.5));
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, var(--accent), var(--light));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Навигация в строку */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Кнопки */
+.auth {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--secondary);
+  color: var(--dark);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  background: #ff7d4d;
+}
+
+  /* Герой-баннер */
+.Foto {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(rgba(10, 31, 43, 0.7), rgba(10, 31, 43, 0.7)), 
+  url('/src/images/fon.webp') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+
+.Rubu {
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--accent), var(--light));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.hero .buttons {
+  margin-top: 2rem;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптация */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .Flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .auth {
+    margin-top: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 600px) {
+  header {
+      flex-direction: column;
+      padding: 0.8rem;
+      gap: 0.8rem;
+  }
+  
+  .header-container {
+      flex-direction: column;
+      gap: 0.8rem;
+  }
+  
+  .logo {
+      align-self: flex-start;
+  }
+  
+  nav {
+      width: 100%;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+  }
+  
+  .auth {
+      margin: 0.5rem 0 0;
+      width: 100%;
+      justify-content: center;
+  }
+  
+  .content {
+      padding-top: 8rem;
+  }
+  
+  .cards-container {
+      grid-template-columns: 1fr;
+  }
+}

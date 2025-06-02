@@ -1,0 +1,446 @@
+:root {
+  --primary: #1b5779;
+  --secondary: #ff6b35;
+  --dark: #0a1f2b;
+  --light: #f7f9fc;
+  --accent: #4ecdc4;
+  --correct: #2ecc71;
+  --incorrect: #e74c3c;
+  --card-bg: rgba(41, 128, 185, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--primary), var(--dark));
+  color: var(--light);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Эффект частиц */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Шапка с эффектом стекла */
+header {
+  background: rgba(10, 31, 43, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(78, 205, 196, 0.5));
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, var(--accent), var(--light));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Навигация в строку */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Кнопки */
+.auth {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--secondary);
+  color: var(--dark);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  background: #ff7d4d;
+}
+
+/* Контейнер викторины */
+.quiz-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: 120px auto 40px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.quiz-container:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(78, 205, 196, 0.3);
+}
+
+.quiz-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--accent), var(--light));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Прогресс-бар */
+.progress-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 8px;
+  background: linear-gradient(to right, var(--accent), var(--secondary));
+  border-radius: 8px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* Карточка вопроса */
+.question-card {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Вопрос */
+.question {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--light);
+  line-height: 1.5;
+}
+
+/* Подсказка */
+.hint {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Изображение ученого */
+.scientist-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  margin: 1rem auto;
+  display: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.scientist-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Варианты ответов */
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.option {
+  background: rgba(52, 152, 219, 0.4);
+  color: var(--light);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option:hover {
+  background: rgba(52, 152, 219, 0.7);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Результат */
+.result {
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+  min-height: 30px;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.correct {
+  color: var(--correct);
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  animation: pulse 0.5s ease;
+}
+
+.incorrect {
+  color: var(--incorrect);
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* Кнопка "Следующий вопрос" */
+.next-btn {
+  background: var(--secondary);
+  color: var(--dark);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  display: none;
+  margin: 1rem auto 0;
+}
+
+.next-btn:hover {
+  background: #ff7d4d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Счет */
+.score-container {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  color: var(--light);
+  display: none;
+}
+
+.score-container span {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.quiz-container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Адаптация */
+@media (max-width: 768px) {
+  .quiz-container {
+      margin: 100px 20px 40px;
+      padding: 1.5rem;
+  }
+  
+  .question {
+      font-size: 1.2rem;
+  }
+  
+  .options {
+      grid-template-columns: 1fr;
+  }
+  
+  .scientist-image {
+      width: 140px;
+      height: 140px;
+  }
+  
+  header {
+      padding: 0.8rem 1rem;
+  }
+  
+  .logo-text {
+      display: none;
+  }
+  
+  .nav-link {
+      font-size: 0.9rem;
+  }
+  
+  .auth {
+      margin-left: 1rem;
+      gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+      flex-direction: column;
+      padding: 0.8rem;
+      gap: 0.8rem;
+  }
+  
+  .header-container {
+      flex-direction: column;
+      gap: 0.8rem;
+  }
+  
+  .logo {
+      align-self: flex-start;
+  }
+  
+  nav {
+      width: 100%;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+  }
+  
+  .auth {
+      margin: 0.5rem 0 0;
+      width: 100%;
+      justify-content: center;
+  }
+  
+  .quiz-container {
+      margin-top: 140px;
+  }
+  
+  .quiz-container h1 {
+      font-size: 1.8rem;
+  }
+  
+  .question-card {
+      padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-container {
+      padding: 1.2rem;
+      margin-top: 160px;
+  }
+  
+  .question {
+      font-size: 1.1rem;
+  }
+  
+  .hint {
+      font-size: 0.9rem;
+  }
+  
+  .scientist-image {
+      width: 120px;
+      height: 120px;
+  }
+}

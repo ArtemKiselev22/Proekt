@@ -267,6 +267,7 @@ p {
 @media (max-width: 768px) {
     .scientist {
         flex-direction: column;
+        margin-top: 150px;
     }
 
     .scientist-image {
